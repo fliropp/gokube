@@ -38,7 +38,7 @@ func (s *WebServer) routes() {
 	prefix := "/gokube/"
 	router := http.NewServeMux()
 	router.HandleFunc("/ping", s.handlePing())
-	router.HandleFunc("/whoami/", s.handleWhoAmI())
+	router.HandleFunc("/whoami", s.handleWhoAmI())
 	router.HandleFunc("/getdata", s.handleGoPyKube())
 	s.AddHandle(prefix, router)
 }
@@ -54,17 +54,17 @@ func (s *WebServer) handleGoPyKube() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		client := httpclient.GetHttpClient()
 		var response interface{}
-		getURL := "http://192.168.64.2/"
+		getURL := "http://192.168.64.2/pykube"
 		//getURL := "pykube-service"
 
 		req, err := http.NewRequest("GET", getURL, nil)
 		if err != nil {
-			fmt.Println(fmt.Errorf("ERROR"))
+			fmt.Println(fmt.Errorf("ERROR: create reqeuest failed (%s)", err.Error()))
 		}
 		req.Header.Add("Accept", "application/json")
 		resp, err := client.Do(req)
 		if err != nil {
-			fmt.Println(fmt.Errorf("ERROR"))
+			fmt.Println(fmt.Errorf("ERROR: request failed (%s)", err.Error()))
 
 		}
 
@@ -72,7 +72,7 @@ func (s *WebServer) handleGoPyKube() http.HandlerFunc {
 
 		err = json.NewDecoder(resp.Body).Decode(&response)
 		if err != nil {
-			fmt.Println(fmt.Errorf("ERROR"))
+			fmt.Println(fmt.Errorf("ERROR: decode failed (%s)", err.Error()))
 
 		}
 		result, _ := json.Marshal(response)

@@ -3,7 +3,7 @@ kind: Deployment                  # Kubernetes controller objects
 metadata:
   name: gokube        # Pod name
 spec:
-  replicas: 3                    # Number of pods to run at any given time
+  replicas: 1                    # Number of pods to run at any given time
   selector:
     matchLabels:
       app: gokube        # This deployment applies to any Pods matching the specified label
@@ -13,7 +13,7 @@ spec:
         app: gokube
     spec:                        # Spec for the container which will run in the Pod
       containers:
-      - name: aresworld
+      - name: gokube
         image: fliropp/gokube:latest
         imagePullPolicy: Always
         args: ["server"]
