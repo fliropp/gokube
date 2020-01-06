@@ -5,7 +5,8 @@ import (
 	"os/signal"
 
 	"github.com/amedia/cloudordino/pkg/logging"
-	"github.com/fliropp/aresworld/pkg/web"
+	"github.com/fliropp/gokube/pkg/grpc"
+	"github.com/fliropp/gokube/pkg/web"
 	"github.com/spf13/cobra"
 	//"github.com/spf13/viper"
 )
@@ -16,6 +17,7 @@ var ServerCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		log := logging.GetLogger()
 		log.Info("Start server . . . ")
+		grpc.RunGrpcClient()
 		webserver := web.NewWebServer(log)
 		webserver.Start()
 		signals := make(chan os.Signal, 1)

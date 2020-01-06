@@ -1,10 +1,11 @@
-module github.com/fliropp/aresworld
+module github.com/fliropp/gokube
 
 go 1.12
 
 require (
-	github.com/amedia/cloudordino v0.0.0-20191031204255-c162244d6a47
+	github.com/amedia/cloudordino v0.0.0-20191220174503-3942470f59e5
+	github.com/golang/protobuf v1.3.2
 	github.com/sirupsen/logrus v1.4.2
 	github.com/spf13/cobra v0.0.5
-	github.com/spf13/viper v1.4.0
+	google.golang.org/grpc v1.21.0
 )

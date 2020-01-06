@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-  "github.com/fliropp/aresworld/cmd/server"
+	"github.com/fliropp/gokube/cmd/server"
 	"github.com/spf13/cobra"
 )
 

@@ -18,7 +18,7 @@ ENV CGO_ENABLED 0
 ENV GOOS linux
 ENV GOARCH amd64
 
-RUN go build -a -installsuffix cgo -o /app/bin/aresworld .
+RUN go build -a -installsuffix cgo -o /app/bin/gokube .
 
 # ----------------------------------------------------
 # Release stage
@@ -34,7 +34,7 @@ ENV LC_LANGUAGE=en_US.UTF-8
 COPY --from=build /app/bin/ /app/bin
 
 WORKDIR /app
-ENTRYPOINT ["/app/bin/aresworld"]
+ENTRYPOINT ["/app/bin/gokube"]
 
 EXPOSE 8080
 

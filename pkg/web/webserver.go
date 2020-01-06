@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/fliropp/aresworld/pkg/httpclient"
+	"github.com/fliropp/gokube/pkg/httpclient"
 	"github.com/sirupsen/logrus"
 )
 

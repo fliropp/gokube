@@ -1,6 +1,6 @@
 package main
 
-import "github.com/fliropp/aresworld/cmd"
+import "github.com/fliropp/gokube/cmd"
 
 func main() {
 	cmd.Execute()
