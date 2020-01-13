@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/fliropp/gokube/pkg/grpcclient"
 	"github.com/fliropp/gokube/pkg/httpclient"
 	"github.com/sirupsen/logrus"
 )
@@ -40,6 +41,7 @@ func (s *WebServer) routes() {
 	router.HandleFunc("/ping", s.handlePing())
 	router.HandleFunc("/whoami", s.handleWhoAmI())
 	router.HandleFunc("/getdata", s.handleGoPyKube())
+	router.HandleFunc("/grpcrequest", s.handleGrpcClient())
 	s.AddHandle(prefix, router)
 }
 
@@ -47,6 +49,14 @@ func (s *WebServer) handlePing() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte("pong!"))
+	}
+}
+
+func (s *WebServer) handleGrpcClient() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		grpcclient.RunGrpcClient()
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("gRPC request sent"))
 	}
 }
 

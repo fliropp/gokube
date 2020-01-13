@@ -15,7 +15,7 @@ spec:
       containers:
       - name: gokube
         image: fliropp/gokube:latest
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         args: ["server"]
         ports:
           - containerPort: 8080  # Should match the port number that the Go application listens on

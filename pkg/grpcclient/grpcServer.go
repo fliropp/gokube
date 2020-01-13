@@ -1,16 +1,7 @@
-package grpc
+package grpcclient
 
 import (
-	"context"
 	"flag"
-	"fmt"
-	"log"
-	"net"
-	"time"
-
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
-	"google.golang.org/grpc/testdata"
 )
 
 var (
@@ -25,7 +16,7 @@ type gokrpcServer struct {
 	msg string
 }
 
-func (ps *gokrpcServer) GetPing(ctx context.Context, p *PingReq) (*PingResp, error) {
+/* func (ps *gokrpcServer) GetPing(ctx context.Context, p *PingReq) (*PingResp, error) {
 	return &PingResp{Response: "pong"}, nil
 }
 
@@ -70,4 +61,4 @@ func RunGrpcServer() {
 	grpcServer := grpc.NewServer(opts...)
 	RegisterPingServer(grpcServer, newServer())
 	grpcServer.Serve(lis)
-}
+} */

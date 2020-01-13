@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gokube-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: \"false\"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /gokube/getdata
+        backend:
+          serviceName: gokube-service
+          servicePort: 80
+      - path: /gokube/ping
+        backend:
+          serviceName: gokube-service
+          servicePort: 80
+      - path: /gokube/grpcrequest
+        backend:
+          serviceName: gokube-service
+          servicePort: 80
+      - path: /gokube/whoami
+        backend:
+          serviceName: gokube-service
+          servicePort: 80
