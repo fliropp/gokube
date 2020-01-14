@@ -12,31 +12,35 @@ import (
 	"google.golang.org/grpc"
 )
 
-func streamBullshit(client protokube.StreamerClient, b *protokube.BullshitIn) {
-	log.Printf("Stream bullshit from pykube to gokube over gRPC (%s)", b)
+func streamToPykube(client protokube.BiStreamerClient, b *protokube.Vessel) {
+	log.Printf("Send reuquest to Py-Kube over gRPC (%s)", b)
+
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	stream, err := client.StreamBullshit(ctx, b)
+	stream, err := client.BidirectionalStream(ctx)
 	if err != nil {
-		log.Fatalf("%v.StreamBullshit(_) = _, %v: ", client, err)
+		log.Fatalf("%v.BidirectionalStream_) = _, %v: ", client, err)
 	}
+	time.Sleep(1 * time.Second)
+	stream.Send(&protokube.Vessel{Val: 1})
 	for {
-		bs, err := stream.Recv()
+		response, err := stream.Recv()
 		if err == io.EOF {
 			break
 		}
 		if err != nil {
-			log.Fatalf("%v.StreamBullshit(_) = _, %v", client, err)
+			log.Fatalf("%v.BidirectionalStream(_) = _, %v", client, err)
 		}
-		log.Println(bs)
+		stream.Send(&protokube.Vessel{Val: response.Val + 1})
+		log.Println(response)
 	}
 }
 
 func RunGrpcClient() {
-	//serverAddr := "192.168.64.2:50051"
-	serverAddr := "pykube-service:50051"
+	serverAddr := "localhost:50051"
+	//serverAddr := "pykube-service:50051"
 
-	fmt.Println("gRPC client is running...")
+	fmt.Println("Go-Kube RPC client is running...")
 	flag.Parse()
 	var opts []grpc.DialOption
 	opts = append(opts, grpc.WithInsecure())
@@ -47,8 +51,8 @@ func RunGrpcClient() {
 		log.Fatalf("fail to dial: %v", err)
 	}
 	defer conn.Close()
-	client := protokube.NewStreamerClient(conn)
+	client := protokube.NewBiStreamerClient(conn)
 
-	streamBullshit(client, &protokube.BullshitIn{Bi: "unleash the bullshit....!"})
+	streamToPykube(client, &protokube.Vessel{Val: 1})
 
 }

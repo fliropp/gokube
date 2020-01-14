@@ -4,6 +4,7 @@ import (
 	"os"
 	"os/signal"
 
+	"github.com/fliropp/gokube/pkg/grpcclient"
 	"github.com/fliropp/gokube/pkg/logging"
 	"github.com/fliropp/gokube/pkg/web"
 	"github.com/spf13/cobra"
@@ -18,6 +19,7 @@ var ServerCmd = &cobra.Command{
 		log.Info("Start server . . . ")
 		webserver := web.NewWebServer(log)
 		webserver.Start()
+		grpcclient.RunGrpcClient()
 		signals := make(chan os.Signal, 1)
 		signal.Notify(signals, os.Interrupt)
 	Serverloop:

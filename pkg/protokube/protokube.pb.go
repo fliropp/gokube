@@ -24,102 +24,61 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type BullshitIn struct {
-	Bi                   string   `protobuf:"bytes,1,opt,name=bi,proto3" json:"bi,omitempty"`
+type Vessel struct {
+	Val                  int64    `protobuf:"varint,1,opt,name=Val,proto3" json:"Val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *BullshitIn) Reset()         { *m = BullshitIn{} }
-func (m *BullshitIn) String() string { return proto.CompactTextString(m) }
-func (*BullshitIn) ProtoMessage()    {}
-func (*BullshitIn) Descriptor() ([]byte, []int) {
+func (m *Vessel) Reset()         { *m = Vessel{} }
+func (m *Vessel) String() string { return proto.CompactTextString(m) }
+func (*Vessel) ProtoMessage()    {}
+func (*Vessel) Descriptor() ([]byte, []int) {
 	return fileDescriptor_9ed5d588564cfa8b, []int{0}
 }
 
-func (m *BullshitIn) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_BullshitIn.Unmarshal(m, b)
+func (m *Vessel) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Vessel.Unmarshal(m, b)
 }
-func (m *BullshitIn) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_BullshitIn.Marshal(b, m, deterministic)
+func (m *Vessel) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Vessel.Marshal(b, m, deterministic)
 }
-func (m *BullshitIn) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BullshitIn.Merge(m, src)
+func (m *Vessel) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Vessel.Merge(m, src)
 }
-func (m *BullshitIn) XXX_Size() int {
-	return xxx_messageInfo_BullshitIn.Size(m)
+func (m *Vessel) XXX_Size() int {
+	return xxx_messageInfo_Vessel.Size(m)
 }
-func (m *BullshitIn) XXX_DiscardUnknown() {
-	xxx_messageInfo_BullshitIn.DiscardUnknown(m)
+func (m *Vessel) XXX_DiscardUnknown() {
+	xxx_messageInfo_Vessel.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_BullshitIn proto.InternalMessageInfo
+var xxx_messageInfo_Vessel proto.InternalMessageInfo
 
-func (m *BullshitIn) GetBi() string {
+func (m *Vessel) GetVal() int64 {
 	if m != nil {
-		return m.Bi
+		return m.Val
 	}
-	return ""
-}
-
-type BullshitOut struct {
-	Bo                   string   `protobuf:"bytes,1,opt,name=bo,proto3" json:"bo,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *BullshitOut) Reset()         { *m = BullshitOut{} }
-func (m *BullshitOut) String() string { return proto.CompactTextString(m) }
-func (*BullshitOut) ProtoMessage()    {}
-func (*BullshitOut) Descriptor() ([]byte, []int) {
-	return fileDescriptor_9ed5d588564cfa8b, []int{1}
-}
-
-func (m *BullshitOut) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_BullshitOut.Unmarshal(m, b)
-}
-func (m *BullshitOut) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_BullshitOut.Marshal(b, m, deterministic)
-}
-func (m *BullshitOut) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BullshitOut.Merge(m, src)
-}
-func (m *BullshitOut) XXX_Size() int {
-	return xxx_messageInfo_BullshitOut.Size(m)
-}
-func (m *BullshitOut) XXX_DiscardUnknown() {
-	xxx_messageInfo_BullshitOut.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_BullshitOut proto.InternalMessageInfo
-
-func (m *BullshitOut) GetBo() string {
-	if m != nil {
-		return m.Bo
-	}
-	return ""
+	return 0
 }
 
 func init() {
-	proto.RegisterType((*BullshitIn)(nil), "protokube.BullshitIn")
-	proto.RegisterType((*BullshitOut)(nil), "protokube.BullshitOut")
+	proto.RegisterType((*Vessel)(nil), "protokube.Vessel")
 }
 
 func init() { proto.RegisterFile("protokube.proto", fileDescriptor_9ed5d588564cfa8b) }
 
 var fileDescriptor_9ed5d588564cfa8b = []byte{
-	// 129 bytes of a gzipped FileDescriptorProto
+	// 121 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2f, 0x28, 0xca, 0x2f,
-	0xc9, 0xcf, 0x2e, 0x4d, 0x4a, 0xd5, 0x03, 0xb3, 0x84, 0x38, 0xe1, 0x02, 0x4a, 0x32, 0x5c, 0x5c,
-	0x4e, 0xa5, 0x39, 0x39, 0xc5, 0x19, 0x99, 0x25, 0x9e, 0x79, 0x42, 0x7c, 0x5c, 0x4c, 0x49, 0x99,
-	0x12, 0x8c, 0x0a, 0x8c, 0x1a, 0x9c, 0x41, 0x4c, 0x49, 0x99, 0x4a, 0xb2, 0x5c, 0xdc, 0x30, 0x59,
-	0xff, 0xd2, 0x12, 0xb0, 0x74, 0x3e, 0x5c, 0x3a, 0xdf, 0xc8, 0x9f, 0x8b, 0x23, 0xb8, 0xa4, 0x28,
-	0x35, 0x31, 0x37, 0xb5, 0x48, 0xc8, 0x99, 0x8b, 0x0f, 0xc2, 0x86, 0x69, 0x10, 0x12, 0xd5, 0x43,
-	0xd8, 0x8b, 0xb0, 0x43, 0x4a, 0x0c, 0x8b, 0xb0, 0x7f, 0x69, 0x89, 0x12, 0x83, 0x01, 0x63, 0x12,
-	0x1b, 0x58, 0xca, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x59, 0xfe, 0x5e, 0xbf, 0xb2, 0x00, 0x00,
-	0x00,
+	0xc9, 0xcf, 0x2e, 0x4d, 0x4a, 0xd5, 0x03, 0xb3, 0x84, 0x38, 0xe1, 0x02, 0x4a, 0x52, 0x5c, 0x6c,
+	0x61, 0xa9, 0xc5, 0xc5, 0xa9, 0x39, 0x42, 0x02, 0x5c, 0xcc, 0x61, 0x89, 0x39, 0x12, 0x8c, 0x0a,
+	0x8c, 0x1a, 0xcc, 0x41, 0x20, 0xa6, 0x91, 0x3f, 0x17, 0x97, 0x53, 0x66, 0x70, 0x49, 0x51, 0x6a,
+	0x62, 0x6e, 0x6a, 0x91, 0x90, 0x23, 0x97, 0xb0, 0x53, 0x66, 0x4a, 0x66, 0x51, 0x6a, 0x72, 0x49,
+	0x66, 0x7e, 0x5e, 0x62, 0x0e, 0x44, 0x42, 0x48, 0x50, 0x0f, 0x61, 0x3a, 0xc4, 0x24, 0x29, 0x4c,
+	0x21, 0x25, 0x06, 0x0d, 0x46, 0x03, 0xc6, 0x24, 0x36, 0xb0, 0xb8, 0x31, 0x20, 0x00, 0x00, 0xff,
+	0xff, 0x10, 0xc7, 0x0f, 0xfd, 0x91, 0x00, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -130,100 +89,105 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// StreamerClient is the client API for Streamer service.
+// BiStreamerClient is the client API for BiStreamer service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type StreamerClient interface {
-	StreamBullshit(ctx context.Context, in *BullshitIn, opts ...grpc.CallOption) (Streamer_StreamBullshitClient, error)
+type BiStreamerClient interface {
+	BidirectionalStream(ctx context.Context, opts ...grpc.CallOption) (BiStreamer_BidirectionalStreamClient, error)
 }
 
-type streamerClient struct {
+type biStreamerClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewStreamerClient(cc *grpc.ClientConn) StreamerClient {
-	return &streamerClient{cc}
+func NewBiStreamerClient(cc *grpc.ClientConn) BiStreamerClient {
+	return &biStreamerClient{cc}
 }
 
-func (c *streamerClient) StreamBullshit(ctx context.Context, in *BullshitIn, opts ...grpc.CallOption) (Streamer_StreamBullshitClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_Streamer_serviceDesc.Streams[0], "/protokube.Streamer/StreamBullshit", opts...)
+func (c *biStreamerClient) BidirectionalStream(ctx context.Context, opts ...grpc.CallOption) (BiStreamer_BidirectionalStreamClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_BiStreamer_serviceDesc.Streams[0], "/protokube.BiStreamer/BidirectionalStream", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &streamerStreamBullshitClient{stream}
-	if err := x.ClientStream.SendMsg(in); err != nil {
-		return nil, err
-	}
-	if err := x.ClientStream.CloseSend(); err != nil {
-		return nil, err
-	}
+	x := &biStreamerBidirectionalStreamClient{stream}
 	return x, nil
 }
 
-type Streamer_StreamBullshitClient interface {
-	Recv() (*BullshitOut, error)
+type BiStreamer_BidirectionalStreamClient interface {
+	Send(*Vessel) error
+	Recv() (*Vessel, error)
 	grpc.ClientStream
 }
 
-type streamerStreamBullshitClient struct {
+type biStreamerBidirectionalStreamClient struct {
 	grpc.ClientStream
 }
 
-func (x *streamerStreamBullshitClient) Recv() (*BullshitOut, error) {
-	m := new(BullshitOut)
+func (x *biStreamerBidirectionalStreamClient) Send(m *Vessel) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *biStreamerBidirectionalStreamClient) Recv() (*Vessel, error) {
+	m := new(Vessel)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
 	return m, nil
 }
 
-// StreamerServer is the server API for Streamer service.
-type StreamerServer interface {
-	StreamBullshit(*BullshitIn, Streamer_StreamBullshitServer) error
+// BiStreamerServer is the server API for BiStreamer service.
+type BiStreamerServer interface {
+	BidirectionalStream(BiStreamer_BidirectionalStreamServer) error
 }
 
-// UnimplementedStreamerServer can be embedded to have forward compatible implementations.
-type UnimplementedStreamerServer struct {
+// UnimplementedBiStreamerServer can be embedded to have forward compatible implementations.
+type UnimplementedBiStreamerServer struct {
 }
 
-func (*UnimplementedStreamerServer) StreamBullshit(req *BullshitIn, srv Streamer_StreamBullshitServer) error {
-	return status.Errorf(codes.Unimplemented, "method StreamBullshit not implemented")
+func (*UnimplementedBiStreamerServer) BidirectionalStream(srv BiStreamer_BidirectionalStreamServer) error {
+	return status.Errorf(codes.Unimplemented, "method BidirectionalStream not implemented")
 }
 
-func RegisterStreamerServer(s *grpc.Server, srv StreamerServer) {
-	s.RegisterService(&_Streamer_serviceDesc, srv)
+func RegisterBiStreamerServer(s *grpc.Server, srv BiStreamerServer) {
+	s.RegisterService(&_BiStreamer_serviceDesc, srv)
 }
 
-func _Streamer_StreamBullshit_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(BullshitIn)
-	if err := stream.RecvMsg(m); err != nil {
-		return err
-	}
-	return srv.(StreamerServer).StreamBullshit(m, &streamerStreamBullshitServer{stream})
+func _BiStreamer_BidirectionalStream_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(BiStreamerServer).BidirectionalStream(&biStreamerBidirectionalStreamServer{stream})
 }
 
-type Streamer_StreamBullshitServer interface {
-	Send(*BullshitOut) error
+type BiStreamer_BidirectionalStreamServer interface {
+	Send(*Vessel) error
+	Recv() (*Vessel, error)
 	grpc.ServerStream
 }
 
-type streamerStreamBullshitServer struct {
+type biStreamerBidirectionalStreamServer struct {
 	grpc.ServerStream
 }
 
-func (x *streamerStreamBullshitServer) Send(m *BullshitOut) error {
+func (x *biStreamerBidirectionalStreamServer) Send(m *Vessel) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-var _Streamer_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "protokube.Streamer",
-	HandlerType: (*StreamerServer)(nil),
+func (x *biStreamerBidirectionalStreamServer) Recv() (*Vessel, error) {
+	m := new(Vessel)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+var _BiStreamer_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "protokube.BiStreamer",
+	HandlerType: (*BiStreamerServer)(nil),
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{
 		{
-			StreamName:    "StreamBullshit",
-			Handler:       _Streamer_StreamBullshit_Handler,
+			StreamName:    "BidirectionalStream",
+			Handler:       _BiStreamer_BidirectionalStream_Handler,
 			ServerStreams: true,
+			ClientStreams: true,
 		},
 	},
 	Metadata: "protokube.proto",
